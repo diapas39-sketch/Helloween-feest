@@ -6,19 +6,74 @@
 <meta name="theme-color" content="#050000">
 <title>Halloween Feest 2026</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}button{font:inherit}.screen{position:fixed;inset:0}.bg{position:absolute;inset:0;background:url('https://raw.githubusercontent.com/diapas39-sketch/Helloween-feest/main/intro.jpg') center/cover no-repeat;filter:saturate(1.05) contrast(1.08)}.shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.25) 45%,rgba(0,0,0,.8))}.red{position:absolute;inset:-20%;background:radial-gradient(circle at 20% 20%,rgba(255,0,0,.28),transparent 30%),radial-gradient(circle at 80% 35%,rgba(180,0,0,.22),transparent 24%);mix-blend-mode:screen;animation:flicker 1.8s steps(8,end) infinite}.fog{position:absolute;left:-25%;width:150%;height:30%;bottom:-5%;background:radial-gradient(ellipse at center,rgba(255,255,255,.18),rgba(255,255,255,.05) 38%,transparent 72%);filter:blur(24px);animation:fogmove 14s linear infinite}.fog.f2{bottom:24%;opacity:.6;animation-duration:20s;animation-direction:reverse}@keyframes flicker{0%,100%{opacity:.2}14%{opacity:.42}19%{opacity:.08}35%{opacity:.32}39%{opacity:.12}61%{opacity:.4}65%{opacity:.1}82%{opacity:.3}}@keyframes fogmove{from{transform:translateX(-9%)}to{transform:translateX(9%)}}#intro{z-index:20;display:flex;align-items:flex-end;justify-content:center;padding:0 20px 42px}.content{position:relative;z-index:3;text-align:center;width:min(620px,100%);text-shadow:0 3px 12px #000}.title{font-size:clamp(36px,10vw,64px);line-height:.92;font-weight:1000;color:#ff2a1f;letter-spacing:-.03em;text-transform:uppercase}.sub{font-size:clamp(22px,5vw,32px);font-weight:900;margin:6px 0 16px}.sound{font-size:20px;font-weight:900;margin:0 0 18px}.cta{width:100%;border:2px solid #ff3b32;background:linear-gradient(#8f0909,#3e0000);color:#fff;border-radius:16px;padding:17px 20px;font-size:20px;font-weight:1000;box-shadow:0 0 24px rgba(255,0,0,.4),inset 0 0 18px rgba(255,80,60,.18)}#jump{z-index:100;display:none;background:#000;align-items:center;justify-content:center;overflow:hidden}#jump.show{display:flex}.jumpimg{position:absolute;inset:-4%;background:url('https://raw.githubusercontent.com/diapas39-sketch/Helloween-feest/main/jump.jpg') center/cover no-repeat;animation:attack 1.05s cubic-bezier(.1,.9,.15,1) forwards}.flash{position:absolute;inset:0;background:#fff;mix-blend-mode:screen;animation:flash .7s linear forwards;pointer-events:none}@keyframes attack{0%{transform:scale(.45);filter:blur(8px)}45%{transform:scale(1.22);filter:blur(1px)}100%{transform:scale(1.08);filter:blur(0)}}@keyframes flash{0%{opacity:1}8%{opacity:0}19%{opacity:.9}28%{opacity:0}47%{opacity:.6}58%,100%{opacity:0}}#flyer{z-index:50;display:none;background:#050000;overflow:auto;padding:14px 14px 26px}#flyer.show{display:block}.flyer-wrap{width:min(720px,100%);margin:0 auto;position:relative}.flyer-img{width:100%;display:block;border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.7)}.wa{display:block;margin:14px 0 0;text-decoration:none;text-align:center;color:#fff;font-weight:1000;font-size:18px;padding:17px 18px;border-radius:16px;background:#148c38;box-shadow:0 10px 28px rgba(0,0,0,.35)}.wa.disabled{background:#3b3b3b;pointer-events:none;opacity:.85}.note{text-align:center;color:#cfcfcf;font-size:13px;margin:8px 0 0}@media(max-width:480px){#intro{padding-bottom:28px}.title{font-size:42px}.sub{font-size:24px}.sound{font-size:18px}.cta{font-size:18px}.flyer-img{border-radius:12px}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}button{font:inherit}
+.screen{position:fixed;inset:0;display:none}.screen.active{display:block}
+.flicker{position:fixed;inset:-10%;z-index:6;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(255,30,20,.28),transparent 28%),radial-gradient(circle at 82% 28%,rgba(180,0,0,.2),transparent 24%);mix-blend-mode:screen;animation:flicker 2s steps(10) infinite}
+@keyframes flicker{0%,100%{opacity:.12}8%{opacity:.32}13%{opacity:.06}27%{opacity:.27}31%{opacity:.08}55%{opacity:.2}69%{opacity:.35}73%{opacity:.08}88%{opacity:.24}}
+.fog{position:fixed;left:-30vw;right:-30vw;height:30vh;bottom:-4vh;z-index:5;pointer-events:none;background:radial-gradient(ellipse at center,rgba(255,255,255,.18),rgba(255,255,255,.06) 34%,transparent 72%);filter:blur(22px);animation:drift 20s linear infinite}.fog2{bottom:23vh;opacity:.6;animation-duration:30s;animation-direction:reverse}
+@keyframes drift{from{transform:translateX(-10vw)}to{transform:translateX(14vw)}}
+#intro{background:linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.78)),url('https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/70f628df-f06d-417d-8065-2821430187db.jpg') center/cover no-repeat}
+.introInner{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:26px 18px 34px;z-index:10}
+.card{width:min(580px,100%);padding:28px 20px 22px;border-radius:28px;background:rgba(8,8,8,.72);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(10px);text-align:center;box-shadow:0 28px 70px rgba(0,0,0,.6),0 0 60px rgba(120,0,0,.25)}
+.eyebrow{font-size:12px;letter-spacing:.22em;font-weight:900;color:#ff4d3e;text-transform:uppercase}.card h1{font-size:clamp(36px,9vw,66px);line-height:.94;margin:10px 0 14px;text-wrap:balance}.sound{font-size:21px;font-weight:900;margin:0 0 18px}
+.btn{width:100%;border:0;border-radius:17px;padding:18px 20px;font-size:19px;font-weight:1000;color:#fff;cursor:pointer;text-decoration:none;display:block;text-align:center}.primary{background:linear-gradient(#f33b2c,#980808);box-shadow:0 14px 34px rgba(255,40,20,.28)}
+#flash{background:#000}.flashImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);filter:contrast(1.08) saturate(1.08) brightness(.82);transition:opacity .08s linear,transform .2s linear}.flashImg.show{opacity:1;transform:scale(1)}.flashShade{position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,0,0,.13),rgba(0,0,0,.58));z-index:2}
+#jump{background:#000;z-index:50}.jumpWrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.monster{position:relative;width:min(94vw,670px);aspect-ratio:1/1;transform:scale(.08);animation:lunge .82s cubic-bezier(.1,.95,.15,1) forwards}
+@keyframes lunge{0%{transform:scale(.08)}58%{transform:scale(1.2)}100%{transform:scale(1)}}
+.face{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 38%,#fafafa 0,#dfdfdf 35%,#999 58%,#2b2b2b 76%,#030303 100%);box-shadow:0 0 90px rgba(255,255,255,.25),0 0 120px rgba(255,0,0,.2)}.eye{position:absolute;top:26%;width:23%;height:28%;background:#000;border-radius:50%;box-shadow:0 0 28px rgba(255,0,0,.35)}.left{left:17%;transform:rotate(-8deg)}.right{right:17%;transform:rotate(8deg)}.mouth{position:absolute;left:50%;top:51%;transform:translateX(-50%);width:29%;height:36%;background:#000;border-radius:45% 45% 60% 60%/28% 28% 72% 72%}.scream{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);font-size:clamp(38px,10vw,80px);font-weight:1000;color:#ff2a1f;text-shadow:0 0 22px rgba(255,0,0,.8);animation:blink .12s infinite alternate}@keyframes blink{from{opacity:1}to{opacity:.4}}
+#flyer{background:linear-gradient(180deg,#0b0b0b,#020202);overflow:auto;-webkit-overflow-scrolling:touch}.flyerInner{max-width:760px;margin:0 auto;padding:16px 14px 34px;position:relative;z-index:10}.flyerCard{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 44px rgba(255,0,0,.12)}.flyerCard img{display:block;width:100%;height:auto}.waBox{margin-top:14px;padding:20px;border-radius:20px;background:#111;border:1px solid rgba(255,255,255,.08);text-align:center}.wa{background:linear-gradient(#27d567,#158b48);box-shadow:0 12px 28px rgba(20,140,70,.24)}.note{font-size:13px;color:#bbb;margin-top:9px}
 </style>
 </head>
 <body>
-<section id="intro" class="screen"><div class="bg"></div><div class="shade"></div><div class="red"></div><div class="fog"></div><div class="fog f2"></div><div class="content"><div class="title">Uitnodiging</div><div class="sub">voor de schrik van je leven</div><div class="sound">🔊 Zet je geluid aan</div><button id="start" class="cta">IK BEN ER KLAAR VOOR</button></div></section>
-<section id="jump" class="screen"><div class="jumpimg"></div><div class="flash"></div></section>
-<section id="flyer" class="screen"><div class="flyer-wrap"><img class="flyer-img" src="https://raw.githubusercontent.com/diapas39-sketch/Helloween-feest/main/flyer.jpg" alt="Halloween Feest flyer"><a class="wa disabled" id="wa" href="#">💬 GA NAAR WHATSAPP-GROEP</a><div class="note">De WhatsApp-link koppelen we later.</div></div></section>
+<div class="flicker"></div><div class="fog"></div><div class="fog fog2"></div>
+
+<section id="intro" class="screen active">
+  <div class="introInner">
+    <div class="card">
+      <div class="eyebrow">Halloween 2026</div>
+      <h1>Uitnodiging voor de schrik van je leven</h1>
+      <div class="sound">🔊 Zet je geluid aan</div>
+      <button id="start" class="btn primary">Ik ben er klaar voor</button>
+    </div>
+  </div>
+</section>
+
+<section id="flash" class="screen">
+  <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/70f628df-f06d-417d-8065-2821430187db.jpg">
+  <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/19914b6c-c1b3-48de-a24a-02273fb87856.jpg">
+  <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/01492217-16c4-4b2a-b84b-71f16ca96a2a.jpg">
+  <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/30ecefe8-d572-4241-ba14-bafe166a8e82.jpg">
+  <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/3b51352a-e65c-46e0-973d-72d84a09d15b.jpg">
+  <div class="flashShade"></div>
+</section>
+
+<section id="jump" class="screen">
+  <div class="jumpWrap">
+    <div class="monster">
+      <div class="face"></div><div class="eye left"></div><div class="eye right"></div><div class="mouth"></div><div class="scream">AAAAAH!</div>
+    </div>
+  </div>
+</section>
+
+<section id="flyer" class="screen">
+  <div class="flyerInner">
+    <div class="flyerCard"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/b85f6f46-e95e-4013-87b7-deb45701bab9.jpg" alt="Halloween flyer"></div>
+    <div class="waBox">
+      <a id="wa" href="#" class="btn wa">💬 Ga naar WhatsApp-groep</a>
+      <div class="note">De WhatsApp-link voegen we later toe.</div>
+    </div>
+  </div>
+</section>
+
 <script>
+const screens=[...document.querySelectorAll('.screen')],intro=document.getElementById('intro'),flash=document.getElementById('flash'),jump=document.getElementById('jump'),flyer=document.getElementById('flyer'),pics=[...document.querySelectorAll('.flashImg')];
 let ctx;
-function audio(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}
-function scream(){const c=audio(),now=c.currentTime,master=c.createGain();master.gain.value=.9;master.connect(c.destination);const len=Math.floor(c.sampleRate*1.0),buf=c.createBuffer(1,len,c.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++){const t=i/c.sampleRate;const env=Math.exp(-2.6*t);data[i]=(Math.random()*2-1)*env*(.85+.15*Math.sin(2*Math.PI*33*t));}const src=c.createBufferSource(),bp=c.createBiquadFilter(),g=c.createGain();src.buffer=buf;bp.type='bandpass';bp.frequency.value=1700;bp.Q.value=.7;g.gain.setValueAtTime(.001,now);g.gain.exponentialRampToValueAtTime(.8,now+.02);g.gain.exponentialRampToValueAtTime(.05,now+.9);src.connect(bp);bp.connect(g);g.connect(master);src.start(now);src.stop(now+1);const o=c.createOscillator(),og=c.createGain();o.type='sawtooth';o.frequency.setValueAtTime(900,now);o.frequency.exponentialRampToValueAtTime(280,now+.8);og.gain.setValueAtTime(.001,now);og.gain.exponentialRampToValueAtTime(.22,now+.02);og.gain.exponentialRampToValueAtTime(.001,now+.85);o.connect(og);og.connect(master);o.start(now);o.stop(now+.9)}
-const intro=document.getElementById('intro'),jump=document.getElementById('jump'),flyer=document.getElementById('flyer');
-document.getElementById('start').addEventListener('click',()=>{audio();intro.style.display='none';jump.classList.add('show');scream();setTimeout(()=>{jump.classList.remove('show');flyer.classList.add('show')},2000)});
+function show(el){screens.forEach(s=>s.classList.remove('active'));el.classList.add('active')}
+function ac(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}
+function hit(){const c=ac(),n=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(90,n);o.frequency.exponentialRampToValueAtTime(45,n+.7);g.gain.setValueAtTime(.001,n);g.gain.exponentialRampToValueAtTime(.18,n+.03);g.gain.exponentialRampToValueAtTime(.001,n+.75);o.connect(g);g.connect(c.destination);o.start(n);o.stop(n+.8)}
+function scream(){const c=ac(),n=c.currentTime,m=c.createGain();m.gain.value=.95;m.connect(c.destination);const o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain();o.type='sawtooth';o2.type='square';o.frequency.setValueAtTime(1250,n);o.frequency.exponentialRampToValueAtTime(430,n+.62);o2.frequency.setValueAtTime(620,n);o2.frequency.exponentialRampToValueAtTime(180,n+.62);g.gain.setValueAtTime(.001,n);g.gain.exponentialRampToValueAtTime(.35,n+.02);g.gain.exponentialRampToValueAtTime(.001,n+.66);o.connect(g);o2.connect(g);g.connect(m);o.start(n);o2.start(n);o.stop(n+.68);o2.stop(n+.68);const len=Math.floor(c.sampleRate*.7),b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*.7;const src=c.createBufferSource(),f=c.createBiquadFilter(),ng=c.createGain();src.buffer=b;f.type='bandpass';f.frequency.value=1500;f.Q.value=.8;ng.gain.setValueAtTime(.001,n);ng.gain.exponentialRampToValueAtTime(.27,n+.02);ng.gain.exponentialRampToValueAtTime(.001,n+.58);src.connect(f);f.connect(ng);ng.connect(m);src.start(n);src.stop(n+.6)}
+document.getElementById('start').addEventListener('click',()=>{ac();show(flash);hit();const seq=[0,1,2,3,4,2,0,4],delay=230;let i=0;const timer=setInterval(()=>{pics.forEach(p=>p.classList.remove('show'));pics[seq[i]].classList.add('show');i++;if(i>=seq.length){clearInterval(timer);setTimeout(()=>{show(jump);scream();setTimeout(()=>show(flyer),2000)},140)}},delay)});
+document.getElementById('wa').addEventListener('click',e=>{e.preventDefault();alert('De WhatsApp-link voegen we later toe.')});
 </script>
 </body>
 </html>
