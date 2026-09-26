@@ -4,7 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#050000">
-<title>Halloween Feest 2026</title>
+<title>HalloweenFeest</title>
+<meta property="og:title" content="HalloweenFeest">
+<meta property="og:description" content="Eén nacht. Eén groot feest. Niemand is veilig. Durf jij naar binnen?">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diapas39-sketch.github.io/Helloween-feest/">
+<meta property="og:image" content="https://diapas39-sketch.github.io/Helloween-feest/assets/entrance-realistic.png">
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}button{font:inherit}
 .screen{position:fixed;inset:0;display:none}.screen.active{display:block}
@@ -18,23 +23,50 @@
 .eyebrow{font-size:12px;letter-spacing:.22em;font-weight:900;color:#ff4d3e;text-transform:uppercase}.card h1{font-size:clamp(36px,9vw,66px);line-height:.94;margin:10px 0 14px;text-wrap:balance}.sound{font-size:21px;font-weight:900;margin:0 0 18px}
 .btn{width:100%;border:0;border-radius:17px;padding:18px 20px;font-size:19px;font-weight:1000;color:#fff;cursor:pointer;text-decoration:none;display:block;text-align:center}.primary{background:linear-gradient(#f33b2c,#980808);box-shadow:0 14px 34px rgba(255,40,20,.28)}
 #flash{background:#000}.flashImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);filter:contrast(1.08) saturate(1.08) brightness(.82);transition:opacity .08s linear,transform .2s linear}.flashImg.show{opacity:1;transform:scale(1)}.flashShade{position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,0,0,.13),rgba(0,0,0,.58));z-index:2}
-#jump{background:#000;z-index:50}.jumpWrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.monster{position:relative;width:min(94vw,670px);aspect-ratio:1/1;transform:scale(.08);animation:lunge .82s cubic-bezier(.1,.95,.15,1) forwards}
-@keyframes lunge{0%{transform:scale(.08)}58%{transform:scale(1.2)}100%{transform:scale(1)}}
-.face{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 38%,#fafafa 0,#dfdfdf 35%,#999 58%,#2b2b2b 76%,#030303 100%);box-shadow:0 0 90px rgba(255,255,255,.25),0 0 120px rgba(255,0,0,.2)}.eye{position:absolute;top:26%;width:23%;height:28%;background:#000;border-radius:50%;box-shadow:0 0 28px rgba(255,0,0,.35)}.left{left:17%;transform:rotate(-8deg)}.right{right:17%;transform:rotate(8deg)}.mouth{position:absolute;left:50%;top:51%;transform:translateX(-50%);width:29%;height:36%;background:#000;border-radius:45% 45% 60% 60%/28% 28% 72% 72%}.scream{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);font-size:clamp(38px,10vw,80px);font-weight:1000;color:#ff2a1f;text-shadow:0 0 22px rgba(255,0,0,.8);animation:blink .12s infinite alternate}@keyframes blink{from{opacity:1}to{opacity:.4}}
-#flyer{background:linear-gradient(180deg,#0b0b0b,#020202);overflow:auto;-webkit-overflow-scrolling:touch}.flyerInner{max-width:760px;margin:0 auto;padding:16px 14px 34px;position:relative;z-index:10}.flyerCard{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.55),0 0 44px rgba(255,0,0,.12)}.flyerCard img{display:block;width:100%;height:auto}.waBox{margin-top:14px;padding:20px;border-radius:20px;background:#111;border:1px solid rgba(255,255,255,.08);text-align:center}.wa{background:linear-gradient(#27d567,#158b48);box-shadow:0 12px 28px rgba(20,140,70,.24)}.note{font-size:13px;color:#bbb;margin-top:9px}
+#jump{background:#000;z-index:50;overflow:hidden}.jumpWrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.monster{width:max(100vw,100vh);height:max(100vw,100vh);flex:none;transform:scale(.015);transform-origin:50% 42%;will-change:transform}.monster img{display:block;width:100%;height:100%;object-fit:contain}.screen.active .monster{animation:lunge 1.75s linear forwards}.screen.active .jumpWrap{animation:impact .28s .42s linear}
+@keyframes lunge{0%{transform:scale(.015);opacity:.25}16%{transform:scale(.035);opacity:.6}22%{transform:scale(.13);opacity:1}28%{transform:scale(1.22)}35%{transform:scale(1)}100%{transform:scale(1.08)}}
+@keyframes impact{0%,100%{translate:0 0}20%{translate:-13px 8px}40%{translate:12px -8px}60%{translate:-8px -4px}80%{translate:6px 6px}}
+#flyer{background:linear-gradient(180deg,#0b0b0b,#020202);overflow:hidden}.flyerInner{width:min(760px,100%);height:100%;height:100dvh;margin:0 auto;padding:max(8px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));position:relative;z-index:10;display:flex;flex-direction:column;gap:8px;align-items:center}.flyerCard{flex:1;min-height:0;width:100%;display:flex;justify-content:center;overflow:hidden}.flyerCard img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}.waBox{flex:none;width:min(520px,100%);padding:0;text-align:center}.wa{background:linear-gradient(#27d567,#158b48);box-shadow:0 5px 22px rgba(20,140,70,.24);padding:13px 16px;font-size:clamp(14px,3.8vw,19px);border-radius:14px}.note{font-size:11px;color:#bbb;margin-top:4px}
+
+.lightning{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:rgba(185,210,255,.3)}.lightning svg{width:100%;height:100%;filter:drop-shadow(0 0 9px #a5bbff) drop-shadow(0 0 22px #688bff)}.lightning.strike{animation:lightning .48s linear forwards}
+@keyframes lightning{0%,24%,44%,100%{opacity:0}3%,17%,30%{opacity:1}20%,38%{opacity:.35}}
+
+#intro{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.28)),url('https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/70f628df-f06d-417d-8065-2821430187db.jpg') center/cover no-repeat}
+.introInner{align-items:flex-end;padding:8px;overflow:auto}
+.card{position:relative;width:min(430px,90%,calc((100dvh - 110px)*.75));aspect-ratio:3/4;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 48px 60px;border:0;border-radius:0;background:url('assets/horror-board.png') center/100% 100% no-repeat;backdrop-filter:none;box-shadow:none;container-type:inline-size}
+.card .eyebrow{font-size:clamp(9px,2.3vw,13px);letter-spacing:.26em;color:#ff7762;text-shadow:0 2px 6px #000}
+.card h1{font-family:Georgia,'Times New Roman',serif;text-transform:uppercase;font-size:clamp(20px,6vw,42px);font-size:10cqi;line-height:1.12;letter-spacing:-.035em;margin:14px -10px;color:#eee3cd;text-shadow:2px 3px 0 #250000,0 4px 14px #000;transform:rotate(-2deg)}
+.card h1 span{display:block;color:#e5312a;text-shadow:0 3px 0 #600404,0 6px 13px #000}
+.invite{font-size:clamp(10px,2.8vw,15px);font-size:3.7cqi;line-height:1.5;color:#c2b5a7;margin:2px 0 16px;text-shadow:0 2px 4px #000}
+.card .sound{font-size:clamp(11px,3vw,16px);font-size:4cqi;margin:0 0 12px;color:#e8d8c8}
+.card .primary{width:100%;border-radius:2px;border:1px solid #b0372a;background:linear-gradient(165deg,#a51d18,#440605);font-family:Georgia,serif;text-transform:uppercase;letter-spacing:.08em;font-size:clamp(11px,3vw,17px);font-size:4.2cqi;padding:14px 8px;box-shadow:0 6px 20px #000, inset 0 0 15px #310000;clip-path:polygon(2% 0,98% 3%,100% 90%,96% 100%,3% 95%,0 12%)}
+.card .primary:hover{filter:brightness(1.25)}.card .primary:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-height:650px){.card{padding:55px 30px 30px}.card h1{margin:8px -6px}.invite{margin-bottom:8px}.card .primary{padding:9px 5px}}
+
+#intro{background-position:75% center}.introInner{justify-content:flex-end;padding:12px}.card{width:min(390px,58vw,calc((100dvh - 40px)*.75));padding:90px 40px 45px;background-color:transparent;mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent)}
+@media(max-width:480px){#intro{background-size:auto 70%;background-position:center top;background-repeat:no-repeat;background-color:#090202}.introInner{justify-content:center;padding:4px}.card{width:min(340px,88vw,calc((100dvh - 220px)*.75));padding:65px 30px 35px}.card h1{margin:10px -7px}.invite{margin-bottom:10px}.card .primary{padding:10px 5px}}
+
+.card{background:none;mask-image:none;isolation:isolate;aspect-ratio:3/4;padding:80px 60px 155px;filter:drop-shadow(8px 14px 10px rgba(0,0,0,.7))}
+.sign-art{position:absolute;inset:0;z-index:-1;background:url('assets/horror-sign-post.png') center/100% 100% no-repeat;clip-path:polygon(14% 4%,20% 4%,20% 8%,36% 7%,55% 7%,58% 4%,68% 3%,79% 1%,81% 2%,83% 8%,85% 17%,88% 25%,90% 32%,92% 40%,96% 49%,94% 49%,92% 48%,90% 43%,87% 36%,84% 28%,81% 17%,79% 13%,78% 16%,81% 23%,82% 34%,83% 47%,82% 48%,84% 52%,84% 59%,86% 61%,87% 64%,87% 69%,84% 70%,74% 70%,72% 73%,70% 72%,68% 70%,56% 70%,56% 98%,54% 98%,44% 98%,44% 71%,40% 70%,37% 72%,35% 71%,33% 74%,31% 71%,29% 72%,27% 70%,12% 70%,11% 68%,12% 65%,11% 64%,12% 61%,13% 56%,12% 52%,13% 48%,12% 42%,13% 37%,12% 33%,14% 29%,13% 25%,14% 21%,13% 18%,12% 17%,12% 15%,11% 14%,12% 12%,11% 10%,14% 9%)}
+.card h1{font-size:10cqi;line-height:1.13}.card .eyebrow{font-size:3.7cqi;letter-spacing:.15em}.card .primary{font-size:4.4cqi}.invite{font-size:4cqi}.card .sound{font-size:4cqi}
+@media(max-width:480px){.card{padding:55px 45px 115px}.card h1{margin:7px -5px}.invite{margin:0 0 7px}.card .sound{margin-bottom:6px}}
+
+#intro{background:#080302}#intro.active{display:flex;align-items:center;justify-content:center}
+.entrance-scene{position:relative;width:min(100vw,75dvh);aspect-ratio:3/4;flex:none}.entrance-scene>img{display:block;width:100%;height:100%}
+.entrance-start{position:absolute;left:51%;top:59%;width:40%;height:7%;border:0;background:transparent;color:#fff;cursor:pointer;transform:rotate(-1deg);border-radius:3px}.entrance-start:hover{background:rgba(255,50,20,.12);box-shadow:0 0 22px rgba(255,30,0,.28)}.entrance-start:focus-visible{outline:3px solid #ffe0ae;outline-offset:3px}.entrance-start:disabled{cursor:wait}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+#ambience-toggle{position:absolute;top:max(12px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:30;max-width:95%;padding:12px 18px;border:1px solid #ad5844;border-radius:6px;background:rgba(25,4,3,.94);color:#fff0df;font-size:15px;cursor:pointer;box-shadow:0 3px 20px #000}#ambience-toggle[hidden]{display:none}
 </style>
 </head>
 <body>
+<audio id="rain-audio" src="assets/rain.mp3" preload="auto" autoplay loop></audio>
+
 <div class="flicker"></div><div class="fog"></div><div class="fog fog2"></div>
 
-<section id="intro" class="screen active">
-  <div class="introInner">
-    <div class="card">
-      <div class="eyebrow">Halloween 2026</div>
-      <h1>Uitnodiging voor de schrik van je leven</h1>
-      <div class="sound">🔊 Zet je geluid aan</div>
-      <button id="start" class="btn primary">Ik ben er klaar voor</button>
-    </div>
+<section id="intro" class="screen active" aria-label="Halloween 2026 — Eén nacht. Eén groot feest. Niemand is veilig.">
+  <div class="entrance-scene">
+    <img src="assets/entrance-realistic.png" alt="Een bebloed houten bord op een paal op de natte stoep vóór het huis. Naast de rode voordeur staat de man met capuchon. Op het bord: Halloween 2026. Eén nacht. Eén groot feest. Niemand is veilig. Je bent uitgenodigd. Zet je geluid aan.">
+    <button id="start" class="entrance-start" aria-label="Ik durf naar binnen"><span class="sr-only">Ik durf naar binnen</span></button>
   </div>
 </section>
 
@@ -45,12 +77,13 @@
   <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/30ecefe8-d572-4241-ba14-bafe166a8e82.jpg">
   <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/3b51352a-e65c-46e0-973d-72d84a09d15b.jpg">
   <div class="flashShade"></div>
+  <div id="lightning" class="lightning" aria-hidden="true"><svg viewBox="0 0 600 900" preserveAspectRatio="none"><g fill="none" stroke="#afcaff" stroke-width="10"><path d="M340 -20 L285 150 L330 138 L238 330 L284 309 L180 560 L217 536 L130 910"/></g><g fill="none" stroke="#fff" stroke-width="3"><path d="M340 -20 L285 150 L330 138 L238 330 L284 309 L180 560 L217 536 L130 910"/><path d="M254 297 L386 385 L357 402 L469 568 M191 534 L89 603 L108 636 L28 755 M306 181 L422 244 L405 267 L514 348"/></g></svg></div>
 </section>
 
 <section id="jump" class="screen">
   <div class="jumpWrap">
     <div class="monster">
-      <div class="face"></div><div class="eye left"></div><div class="eye right"></div><div class="mouth"></div><div class="scream">AAAAAH!</div>
+      <img id="freddy" src="assets/freddy-jumpscare.png" alt="Freddy schiet naar je toe" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
@@ -59,21 +92,78 @@
   <div class="flyerInner">
     <div class="flyerCard"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/b85f6f46-e95e-4013-87b7-deb45701bab9.jpg" alt="Halloween flyer"></div>
     <div class="waBox">
-      <a id="wa" href="#" class="btn wa">💬 Ga naar WhatsApp-groep</a>
-      <div class="note">De WhatsApp-link voegen we later toe.</div>
+      <a id="wa" href="https://chat.whatsapp.com/EJVNzOKkJ6e1Vi5joohIBB" target="_blank" rel="noopener noreferrer" class="btn wa">💬 Ga naar WhatsApp-groep</a>
+
     </div>
   </div>
 </section>
 
 <script>
 const screens=[...document.querySelectorAll('.screen')],intro=document.getElementById('intro'),flash=document.getElementById('flash'),jump=document.getElementById('jump'),flyer=document.getElementById('flyer'),pics=[...document.querySelectorAll('.flashImg')];
-let ctx;
+let ctx,master,storm,rumble;
+const activeSounds=new Set();
+const soundFiles=Promise.all(['thunder','scream','spooky-music','evil-laugh'].map(async name=>{const response=await fetch('assets/'+name+(name==='spooky-music'?'.ogg':'.mp3'));if(!response.ok)throw new Error('Geluid laden mislukt');return [name,await response.arrayBuffer()]}));
+let decoded;
+const rain=document.getElementById('rain-audio');rain.volume=.4;
+const distantThunder=new Audio('assets/thunder.mp3');distantThunder.volume=.18;distantThunder.preload='auto';
+let ambienceTimer,ambienceStarted=false,entering=false;
+async function startAmbience(){
+ if(entering||ambienceStarted||!intro.classList.contains('active'))return;
+ try{await rain.play();if(entering){rain.pause();return}ambienceStarted=true;distantThunder.currentTime=3;distantThunder.play().catch(()=>{});ambienceTimer=setInterval(()=>{if(!entering){distantThunder.currentTime=0;distantThunder.play().catch(()=>{})}},18000)}catch(e){/* The browser may require a user gesture before audible playback. */}
+}
+function stopAmbience(){clearInterval(ambienceTimer);rain.pause();distantThunder.pause();ambienceStarted=false}
+startAmbience();
+document.addEventListener('pointerdown',event=>{if(!event.target.closest('#start'))startAmbience()});
+document.addEventListener('keydown',()=>startAmbience());
+window.addEventListener('pagehide',()=>{stopAmbience();stopSounds()});
+
 function show(el){screens.forEach(s=>s.classList.remove('active'));el.classList.add('active')}
-function ac(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx}
-function hit(){const c=ac(),n=c.currentTime,o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(90,n);o.frequency.exponentialRampToValueAtTime(45,n+.7);g.gain.setValueAtTime(.001,n);g.gain.exponentialRampToValueAtTime(.18,n+.03);g.gain.exponentialRampToValueAtTime(.001,n+.75);o.connect(g);g.connect(c.destination);o.start(n);o.stop(n+.8)}
-function scream(){const c=ac(),n=c.currentTime,m=c.createGain();m.gain.value=.95;m.connect(c.destination);const o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain();o.type='sawtooth';o2.type='square';o.frequency.setValueAtTime(1250,n);o.frequency.exponentialRampToValueAtTime(430,n+.62);o2.frequency.setValueAtTime(620,n);o2.frequency.exponentialRampToValueAtTime(180,n+.62);g.gain.setValueAtTime(.001,n);g.gain.exponentialRampToValueAtTime(.35,n+.02);g.gain.exponentialRampToValueAtTime(.001,n+.66);o.connect(g);o2.connect(g);g.connect(m);o.start(n);o2.start(n);o.stop(n+.68);o2.stop(n+.68);const len=Math.floor(c.sampleRate*.7),b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*.7;const src=c.createBufferSource(),f=c.createBiquadFilter(),ng=c.createGain();src.buffer=b;f.type='bandpass';f.frequency.value=1500;f.Q.value=.8;ng.gain.setValueAtTime(.001,n);ng.gain.exponentialRampToValueAtTime(.27,n+.02);ng.gain.exponentialRampToValueAtTime(.001,n+.58);src.connect(f);f.connect(ng);ng.connect(m);src.start(n);src.stop(n+.6)}
-document.getElementById('start').addEventListener('click',()=>{ac();show(flash);hit();const seq=[0,1,2,3,4,2,0,4],delay=230;let i=0;const timer=setInterval(()=>{pics.forEach(p=>p.classList.remove('show'));pics[seq[i]].classList.add('show');i++;if(i>=seq.length){clearInterval(timer);setTimeout(()=>{show(jump);scream();setTimeout(()=>show(flyer),2000)},140)}},delay)});
-document.getElementById('wa').addEventListener('click',e=>{e.preventDefault();alert('De WhatsApp-link voegen we later toe.')});
+function ac(){if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createDynamicsCompressor();master.threshold.value=-8;master.knee.value=6;master.ratio.value=8;master.connect(ctx.destination);storm=ctx.createGain();storm.connect(master)}if(ctx.state==='suspended')ctx.resume();return ctx}
+async function loadSounds(){ac();if(!decoded)decoded= soundFiles.then(files=>Promise.all(files.map(async([name,bytes])=>[name,await ctx.decodeAudioData(bytes.slice(0))]))).then(entries=>Object.fromEntries(entries));return decoded}
+function playSample(buffer,{offset=0,duration=buffer.duration-offset,volume=1,rate=1,bus=master,lowpass=0}={}){const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.playbackRate.value=rate;gain.gain.value=volume;source.connect(gain);if(lowpass){const filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=lowpass;gain.connect(filter);filter.connect(bus)}else gain.connect(bus);source.start(ctx.currentTime,offset,duration);activeSounds.add(source);source.onended=()=>activeSounds.delete(source);return source}
+async function startRumble(){const sounds=await loadSounds();storm.gain.setValueAtTime(1,ctx.currentTime);rumble=playSample(sounds.thunder,{offset:5,duration:16,volume:1.5,lowpass:420,bus:storm})}
+async function thunder(){const sounds=await loadSounds();playSample(sounds.thunder,{offset:.48,duration:4.5,volume:1.5,rate:.96+Math.random()*.08,bus:storm})}
+async function scream(){
+ const sounds=await loadSounds(),now=ctx.currentTime;
+ // Use the strongest isolated scream, with a short room echo.
+ const voice=ctx.createBufferSource(),voiceGain=ctx.createGain(),echo=ctx.createDelay(.3),echoGain=ctx.createGain();
+ voice.buffer=sounds.scream;voice.playbackRate.value=1.08;
+ voiceGain.gain.setValueAtTime(0,now);voiceGain.gain.linearRampToValueAtTime(1.8,now+.012);voiceGain.gain.setValueAtTime(1.8,now+.75);voiceGain.gain.linearRampToValueAtTime(0,now+1.05);
+ voice.connect(voiceGain);voiceGain.connect(master);echo.delayTime.value=.13;echoGain.gain.value=.2;voiceGain.connect(echo);echo.connect(echoGain);echoGain.connect(master);
+ voice.start(now,5.72,1.15);activeSounds.add(voice);voice.onended=()=>activeSounds.delete(voice);
+ // A deep impact reinforces the scream without adding a high-pitched beep.
+ const impact=ctx.createOscillator(),impactGain=ctx.createGain();impact.type='sine';impact.frequency.setValueAtTime(95,now);impact.frequency.exponentialRampToValueAtTime(32,now+.24);
+ impactGain.gain.setValueAtTime(.001,now);impactGain.gain.exponentialRampToValueAtTime(.65,now+.008);impactGain.gain.exponentialRampToValueAtTime(.001,now+.32);impact.connect(impactGain);impactGain.connect(master);impact.start(now);impact.stop(now+.34);activeSounds.add(impact);impact.onended=()=>activeSounds.delete(impact);
+}
+async function evilLaugh(){
+ const sounds=await loadSounds();
+ const source=playSample(sounds['evil-laugh'],{volume:1.45,rate:.94});
+ await new Promise(resolve=>{source.onended=()=>{activeSounds.delete(source);resolve()}});
+}
+async function startFlyerMusic(){
+ const sounds=await loadSounds();if(!flyer.classList.contains('active'))return;
+ const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=sounds['spooky-music'];source.loop=true;
+ gain.gain.setValueAtTime(0,ctx.currentTime);gain.gain.linearRampToValueAtTime(.5,ctx.currentTime+1.8);
+ source.connect(gain);gain.connect(master);source.start();activeSounds.add(source);source.onended=()=>activeSounds.delete(source);
+}
+function quietStorm(){storm.gain.cancelScheduledValues(ctx.currentTime);storm.gain.setTargetAtTime(0,ctx.currentTime,.04)}
+function stopSounds(){for(const source of activeSounds)try{source.stop()}catch(e){}activeSounds.clear()}
+function strike(){const bolt=document.getElementById('lightning');bolt.classList.remove('strike');void bolt.offsetWidth;bolt.classList.add('strike');thunder()}
+const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+document.getElementById('start').addEventListener('click',async()=>{
+  const start=document.getElementById('start');start.disabled=true;entering=true;stopAmbience();ac();
+  try{await Promise.all([document.getElementById('freddy').decode(),loadSounds()])}catch(e){entering=false;start.disabled=false;start.textContent='Laden mislukt — probeer opnieuw';start.style.background='#650b08';return}
+  await startRumble();thunder();show(flash);
+  for(let i=0;i<pics.length;i++){
+    pics.forEach(p=>p.classList.remove('show'));pics[i].classList.add('show');
+    if(i>0)strike();
+    await pause(1100);
+  }
+  pics.forEach(p=>p.classList.remove('show'));document.getElementById('lightning').classList.remove('strike');
+  quietStorm();await pause(350);show(jump);await pause(385);await scream();await pause(1200);await evilLaugh();stopSounds();show(flyer);startFlyerMusic();
+});
+loadSounds().catch(()=>{});
+
 </script>
 </body>
 </html>
