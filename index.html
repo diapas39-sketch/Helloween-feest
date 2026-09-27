@@ -168,10 +168,9 @@ function stopSounds(){for(const source of activeSounds)try{source.stop()}catch(e
 function strike(){const bolt=document.getElementById('lightning');bolt.classList.remove('strike');void bolt.offsetWidth;bolt.classList.add('strike');thunder()}
 const flashMessages=[
  {title:'Wij hebben iets duivels gezelligs bedacht…',detail:'',duration:4200},
- {title:'Een spookfeest bij ons thuis!',detail:'',duration:4200},
- {title:'€50 per volwassene',detail:'Inclusief drank — proost op een griezelig goede nacht!',duration:6500},
- {title:'Wij zorgen voor de drank…',detail:'Jij brengt de feeststemming mee!',duration:5000},
- {title:'Muziek, drank & duivelse gezelligheid',detail:'Met een zanger, dj en een huis vol Halloween!',duration:5500},
+ {title:'Een Halloween feest bij ons thuis!',detail:'',duration:4200},
+ {title:'€50 per volwassene',detail:'Inclusief drank, dj, versiering en de huur van materialen zoals hekken en een fotobooth.',duration:10000},
+ {title:'We pakken groots uit…',detail:'Een Halloween feest om nooit te vergeten!',duration:5500},
  {title:'Trek je engste outfit aan…',detail:'Verkleed komen is verplicht. Als je durft!',duration:5500}
 ];
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
