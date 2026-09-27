@@ -66,6 +66,12 @@
 .wa{animation:whatsappGlow 2s ease-in-out infinite alternate}
 @keyframes whatsappGlow{0%,20%{background:#124128;box-shadow:none}100%{background:#219d50;box-shadow:0 0 9px #23aa5066,0 0 18px #16894044}}
 @media(prefers-reduced-motion:reduce){.wa{animation:none}}
+
+.flashCopy{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px max(22px,env(safe-area-inset-left));background:linear-gradient(transparent,rgba(0,0,0,.65) 35%,rgba(0,0,0,.75) 65%,transparent);pointer-events:none}
+.flashCopy h2{max-width:850px;margin:0;color:#f0dfcc;font-family:Georgia,'Times New Roman',serif;font-weight:900;font-size:clamp(30px,7.5vw,76px);line-height:1.13;text-transform:uppercase;text-wrap:balance;text-shadow:2px 3px 0 #650606,0 6px 2px #260000,0 0 24px #000;transform:rotate(-1deg)}
+.flashCopy h2:after{content:'';display:block;width:130px;height:17px;margin:18px auto;background:linear-gradient(#a91313,#540000);clip-path:polygon(0 0,100% 0,98% 22%,79% 22%,77% 65%,74% 22%,54% 22%,52% 100%,48% 22%,22% 22%,20% 70%,17% 22%,2% 22%)}
+.flashCopy p{max-width:720px;margin:0;color:#fff1df;font-size:clamp(20px,4.7vw,34px);font-weight:700;line-height:1.4;text-wrap:balance;text-shadow:0 2px 6px #000}
+@media(max-height:450px){.flashCopy h2{font-size:32px}.flashCopy p{font-size:20px}.flashCopy h2:after{margin:10px auto}}
 </style>
 </head>
 <body>
@@ -87,6 +93,7 @@
   <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/30ecefe8-d572-4241-ba14-bafe166a8e82.jpg">
   <img class="flashImg" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3IOfl3F3CkyAqC05OoZMFZMGb4z/3b51352a-e65c-46e0-973d-72d84a09d15b.jpg">
   <div class="flashShade"></div>
+  <div class="flashCopy" aria-live="polite" aria-atomic="true"><h2 id="flash-title"></h2><p id="flash-detail"></p></div>
   <div id="lightning" class="lightning" aria-hidden="true"><svg viewBox="0 0 600 900" preserveAspectRatio="none"><g fill="none" stroke="#afcaff" stroke-width="10"><path d="M340 -20 L285 150 L330 138 L238 330 L284 309 L180 560 L217 536 L130 910"/></g><g fill="none" stroke="#fff" stroke-width="3"><path d="M340 -20 L285 150 L330 138 L238 330 L284 309 L180 560 L217 536 L130 910"/><path d="M254 297 L386 385 L357 402 L469 568 M191 534 L89 603 L108 636 L28 755 M306 181 L422 244 L405 267 L514 348"/></g></svg></div>
 </section>
 
@@ -159,15 +166,25 @@ async function startFlyerMusic(){
 function quietStorm(){storm.gain.cancelScheduledValues(ctx.currentTime);storm.gain.setTargetAtTime(0,ctx.currentTime,.04)}
 function stopSounds(){for(const source of activeSounds)try{source.stop()}catch(e){}activeSounds.clear()}
 function strike(){const bolt=document.getElementById('lightning');bolt.classList.remove('strike');void bolt.offsetWidth;bolt.classList.add('strike');thunder()}
+const flashMessages=[
+ {title:'Wij hebben iets duivels gezelligs bedacht…',detail:'',duration:4200},
+ {title:'Een spookfeest bij ons thuis!',detail:'',duration:4200},
+ {title:'€25 per volwassene',detail:'Voor de zanger, dj, versiering en alle griezelige gezelligheid…',duration:6500},
+ {title:'Neem je eigen drank mee…',detail:'Voor de dorst én de moed!',duration:5000},
+ {title:'Wij zorgen voor ijs en ijsblokjes',detail:'Jij neemt je favoriete drank mee.',duration:5500},
+ {title:'Trek je engste outfit aan…',detail:'Verkleed komen is verplicht. Als je durft!',duration:5500}
+];
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 document.getElementById('start').addEventListener('click',async()=>{
   const start=document.getElementById('start');start.disabled=true;entering=true;stopAmbience();ac();
   try{await Promise.all([document.getElementById('freddy').decode(),loadSounds()])}catch(e){entering=false;start.disabled=false;start.textContent='Laden mislukt — probeer opnieuw';start.style.background='#650b08';return}
   await startRumble();thunder();show(flash);
-  for(let i=0;i<pics.length;i++){
-    pics.forEach(p=>p.classList.remove('show'));pics[i].classList.add('show');
+  for(let i=0;i<flashMessages.length;i++){
+    pics.forEach(p=>p.classList.remove('show'));pics[i%pics.length].classList.add('show');
+    document.getElementById('flash-title').textContent=flashMessages[i].title;
+    document.getElementById('flash-detail').textContent=flashMessages[i].detail;
     if(i>0)strike();
-    await pause(1100);
+    await pause(flashMessages[i].duration);
   }
   pics.forEach(p=>p.classList.remove('show'));document.getElementById('lightning').classList.remove('strike');
   quietStorm();await pause(350);show(jump);await pause(385);await scream();await pause(1200);await evilLaugh();stopSounds();show(flyer);startFlyerMusic();
